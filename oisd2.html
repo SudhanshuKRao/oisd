@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- Setting language to Hindi for SEO targets -->
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Title Updated to Interview Note Library -->
+    <title>OISD Interview Note Library | Oil Industry Safety Directorate (OISD)</title>
+    
+    <!-- SEO Meta Description -->
+    <meta name="description" content="भारतीय तेल और गैस उद्योग के लिए OISD मानक, दिशानिर्देश और सर्वोत्तम अभ्यास (Recommended Practices) की पूरी सूची खोजें। Oil Industry Safety Directorate के आवश्यक सुरक्षा नियम।">
+    
+    <!-- SEO Meta Keywords -->
+    <meta name="keywords" content="OISD Standards List, Oil Industry Safety Directorate, तेल उद्योग सुरक्षा निदेशालय, Petroleum Safety Norms, OISD Guidelines, OISD Standards, Interview Notes">
+
+    <!-- JSON-LD Structured Data (Organization & FAQ) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oil Industry Safety Directorate (OISD)",
+          "url": "https://www.oisd.gov.in/",
+          "logo": "https://placehold.co/100x100/1e3a8a/FFFFFF?text=OISD",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Safety Information",
+            "url": "https://www.oisd.gov.in/contact"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "OISD Standards का उद्देश्य क्या है?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OISD Standards का मुख्य उद्देश्य भारत में तेल और गैस उद्योग के लिए न्यूनतम सुरक्षा आवश्यकताओं और सर्वोत्तम इंजीनियरिंग प्रथाओं को स्थापित करना है। इसका लक्ष्य दुर्घटनाओं को रोकना और परिचालन दक्षता को बढ़ाना है।"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "OISD-STD और OISD-RP में क्या अंतर है?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OISD-STD (Standards) अनिवार्य सुरक्षा नियम होते हैं जिनका पालन करना आवश्यक है, जबकि OISD-RP (Recommended Practices) दिशानिर्देश होते हैं जो सुरक्षा को बढ़ाने के लिए सर्वोत्तम अभ्यास सुझाते हैं, लेकिन ये हमेशा अनिवार्य नहीं होते।"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Adjusted the scrollable-table class to fix it to the data rows container */
+        .scrollable-data-rows {
+            max-height: 70vh; /* Limit height for scrollability */
+            overflow-y: auto;
+        }
+        /* Custom scrollbar styling */
+        .scrollable-data-rows::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-data-rows::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .scrollable-data-rows::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        /* Style for the clickable row to give feedback */
+        .document-row:hover {
+            background-color: #eff6ff; /* blue-50 */
+            transition: background-color 0.2s;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        /* Distinct header row style */
+        .table-header-distinct {
+            background-color: #e0f2fe; /* A slightly darker blue for distinction */
+            border-bottom: 2px solid #93c5fd; /* A more prominent border */
+            font-size: 0.9rem; /* Slightly larger font */
+            font-weight: 700; /* Bolder font */
+            color: #1e3a8a; /* Darker blue text */
+            z-index: 10; /* Ensure sticky header stays above content */
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        /* Style for retractable section arrow rotation */
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Custom class to handle the border radius when the content is open/closed */
+        .retractable-button.open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .retractable-button.closed {
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        /* Pre tag styling for better readability of notes */
+        .notes-pre {
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            white-space: pre-wrap; /* Ensures wrapping */
+            text-align: left;
+            border: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header (Site Title H1) -->
+    <header class="bg-blue-800 shadow-lg sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- H1: साइट का मुख्य शीर्षक (Brand) -->
+            <h1 class="text-3xl font-bold text-white tracking-tight">OISD Interview Note Library</h1>
+            <span class="text-sm font-medium text-blue-200 hidden sm:block">Oil Industry Safety Directorate</span>
+        </div>
+    </header>
+
+    <!-- Main Content Container --><main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- List View Container -->
+        <div id="listView">
+            <!-- Search and Filter Section (One Line) -->
+            <div class="mb-6 bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                    <label for="searchInput" class="text-xl font-semibold text-gray-700 whitespace-nowrap shrink-0">Search Documents:</label>
+                    
+                    <input type="text" id="searchInput" onkeyup="filterDocuments()" placeholder="Search by Standard No. or Name..."
+                           class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 text-lg">
+                    
+                    <button onclick="filterDocuments()"
+                            class="sm:w-auto w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-150 whitespace-nowrap shrink-0">
+                        Search
+                    </button>
+                </div>
+            </div>
+
+            <!-- SEO Introductory Content -->
+            <div class="mb-6 bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-3">OISD (Oil Industry Safety Directorate) क्या है?</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    तेल उद्योग सुरक्षा निदेशालय (Oil Industry Safety Directorate), जिसे OISD के नाम से जाना जाता है, भारत सरकार के पेट्रोलियम और प्राकृतिक गैस मंत्रालय के तहत एक तकनीकी निदेशालय है। OISD का मुख्य कार्य तेल और गैस उद्योग में <a href="#documentList" class="text-blue-600 font-bold hover:underline">सुरक्षा और स्वास्थ्य के मानकों</a> को तैयार करना, उनकी निगरानी करना और उन्हें लागू करवाना है। यह <strong class="font-semibold text-blue-700">OISD Standards List</strong> उद्योग में डिजाइन, संचालन और रखरखाव के लिए अनिवार्य सुरक्षा दिशानिर्देश प्रदान करती है, जिसका उद्देश्य दुर्घटनाओं को रोकना और एक सुरक्षित कार्य वातावरण सुनिश्चित करना है। उदाहरण के लिए, <a href="#OISD-STD-105" onclick="showDocumentDetails(0)" class="text-blue-600 hover:underline font-medium">Work Permit System (OISD-STD-105)</a> जैसे मानक महत्वपूर्ण हैं।
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-2">
+                    अधिक जानकारी के लिए, कृपया <a href="https://www.oisd.gov.in/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">आधिकारिक OISD वेबसाइट</a> पर जाएँ।
+                </p>
+            </div>
+
+            <!-- Document List / Table CONTAINER -->
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                
+                <!-- 1. HEADER SECTION (H2, Refresh Button, Total Count) -->
+                <div class="p-6 bg-gray-50 border-b border-gray-200 flex justify-between items-center flex-wrap gap-4">
+                    <!-- H2: Main title -->
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800" id="documentList">OISD Standards & Interview Note List 2024</h2>
+                    
+                    <div class="flex items-center gap-4 flex-wrap justify-end">
+                        <button onclick="refreshList()" 
+                                class="bg-gray-300 text-gray-800 text-sm font-semibold p-2 rounded-lg hover:bg-gray-400 transition duration-150 flex items-center shrink-0 shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11.334 14l-2.92-2.92m2.92 2.92H15.08m-3.414 0A8.001 8.001 0 0119.418 15m0 0h-4.582" />
+                            </svg>
+                            Refresh List
+                        </button>
+                        <p class="text-gray-500 text-sm">Click on any row for notes. Total: 126</p>
+                    </div>
+                </div>
+
+                <!-- 2. DESKTOP COLUMN NAME ROW (Made STICKY) -->
+                <div class="hidden md:grid grid-cols-6 lg:grid-cols-9 gap-4 p-4 uppercase table-header-distinct sticky top-0">
+                    <div class="col-span-1">Sr. No.</div>
+                    <div class="col-span-2 lg:col-span-2">Standard No.</div>
+                    <div class="col-span-2 lg:col-span-4">Standard Name</div>
+                    <div class="col-span-1 lg:col-span-1 text-center">Edition</div>
+                    <div class="col-span-0 lg:col-span-1 text-center">STATUS</div>
+                </div>
+
+                <!-- 3. SCROLLABLE DATA ROWS BODY (ID updated to dataRowsContainer) -->
+                <div id="dataRowsContainer" class="scrollable-data-rows divide-y divide-gray-200">
+                    <!-- Documents will be injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Details View Container (Hidden by default) -->
+        <div id="detailsView" class="hidden bg-white rounded-xl shadow-2xl p-6 sm:p-8">
+            <button onclick="showListView()" class="mb-6 text-blue-600 font-semibold hover:text-blue-800 transition duration-150 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Document List
+            </button>
+            
+            <div id="documentDetailsContent">
+                <!-- Document details will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-8 py-4 bg-gray-200 text-center text-gray-600 text-sm">
+        <p>&copy; 2025 OISD Interview Note Library | Safety First</p>
+        <p class="mt-1">
+            This resource contains synthesized interview preparation notes. For official regulatory information, please visit the 
+            <a href="https://www.oisd.gov.in/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline font-medium">Official Oil Industry Safety Directorate Website</a>.
+        </p>
+    </footer>
+
+    <!-- Download/Cigarette Modal -->
+    <div id="downloadModal" class="modal-overlay hidden">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm p-6 relative">
+            
+            <!-- Close button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Main Title/Message -->
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">One More Step...</h3>
+            
+            <!-- Default Choice View -->
+            <div id="modalChoiceView" class="text-center">
+                <p class="text-lg text-gray-600 mb-6">Would you like to proceed with the download, or perhaps support the developer's simple vice?</p>
+                
+                <div class="flex flex-col space-y-3">
+                    
+                    <!-- 1. MOBILE ONLY UPI BUTTON -->
+                    <button id="mobileUpiButton" onclick="showUpiDeepLink()" 
+                            class="hidden w-full bg-green-500 text-white p-3 rounded-lg font-semibold text-lg hover:bg-green-600 transition duration-150 shadow-md">
+                        📱 Pay ₹10 via PhonePe/UPI (Mobile Only)
+                    </button>
+                    
+                    <!-- 2. DEFAULT QR CODE/CIGARETTE OPTION -->
+                    <button onclick="showQrCode()" 
+                            class="bg-red-500 text-white p-3 rounded-lg font-semibold text-lg hover:bg-red-600 transition duration-150 shadow-md">
+                        🚬 Buy me a cigarette (₹10)
+                    </button>
+                    
+                    <!-- 3. DOWNLOAD BUTTON -->
+                    <button onclick="performDownload()" 
+                            class="bg-blue-600 text-white p-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition duration-150 shadow-md">
+                        ⬇️ Download Notes PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- QR Code View -->
+            <div id="modalQrCodeView" class="hidden text-center">
+                <p class="text-xl font-semibold text-gray-800 mb-3">Thanks for the gesture!</p>
+                <p class="text-gray-600 mb-4">Scan the QR code below to send **₹10** via PhonePe.</p>
+                
+                <!-- QR Code Image - Updated the file path, but must use an accessible URL for live environment -->
+                <img id="qrCodeImage" 
+                     src="G:\qr-code-bee-is.png" 
+                     alt="PhonePe QR Code for Cigarette Fund" 
+                     class="mx-auto border-4 border-gray-200 rounded-lg mb-6 w-3/5 h-auto">
+
+                <!-- NOTE: The image source 'G:\qr-code-bee-is.png' is a local path and cannot be used here. 
+                     We must use an uploaded or remote URL. The previous working URL is maintained. -->
+
+                <button onclick="closeModal()"
+                        class="w-full bg-gray-400 text-white p-3 rounded-lg font-semibold hover:bg-gray-500 transition duration-150">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- Document Data Array (Updated to new 'facts' and 'definitions' structure) ---
+        const documents = [
+            // S.N. 1: Completed - Content combined into 'facts'
+            { sn: 1, number: "OISD-STD-105", name: "Work Permit System", edition: "3rd (2018)", status: "Completed", 
+              facts: 
+                  "Summary/Objective:\nDefines the essential safety controls and procedures for issuing, receiving, and closing out work permits to ensure safe execution of hazardous jobs in operating facilities.\n\n" +
+                  "Key Sections:\n1. Scope and Applicability\n2. Definitions and Terminology\n3. Responsibilities (Issuing/Receiving Authorities)\n4. Types of Permits (Hot, Cold, Confined Space, etc.)\n5. Permit Issuance and Clearance Procedure\n6. Audit and Review Mechanism\n\n" + 
+                  "Critical Data:\nMinimum permit retention time: 3 months (hard copy), 1 year (electronic).\nMaximum validity for a hot work permit: 8 hours.\nMandatory daily audit frequency: Once per day by safety officer.", 
+              definitions: 
+                  "Issuing Authority: The person responsible for the area where the work is to be carried out.\n" +
+                  "Receiving Authority: The person supervising the workforce and responsible for safe execution.\n" +
+                  "Hot Work: Any work involving sources of ignition or temperatures likely to ignite flammable gas or vapours." 
+            },
+            // S.N. 2-126: Under Development
+            { sn: 2, number: "OISD-STD-106", name: "Equipment Layout", edition: "4th (2014)", status: "Under Development" },
+            { sn: 3, number: "OISD-STD-107", name: "Electrical Safety", edition: "4th (2019)", status: "Under Development" },
+            { sn: 4, number: "OISD-STD-108", name: "Static Electricity", edition: "3rd (2014)", status: "Under Development" },
+            { sn: 5, number: "OISD-STD-109", name: "Process Safety Management", edition: "2nd (2014)", status: "Under Development" },
+            { sn: 6, number: "OISD-STD-110", name: "Contractor Safety", edition: "2nd (2014)", status: "Under Development" },
+            { sn: 7, number: "OISD-STD-111", name: "Process Control and Safety Instrumentation", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 8, number: "OISD-STD-112", name: "Pressure Relieving and Disposal System", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 9, number: "OISD-STD-113", name: "Confined Space Entry", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 10, number: "OISD-STD-114", name: "Lifting Tools & Tackles", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 11, number: "OISD-STD-115", name: "Mechanical Seals & Gland Packing", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 12, number: "OISD-STD-116", name: "Personal Protective Equipment", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 13, number: "OISD-STD-117", name: "Fire Protection Facilities for Petroleum Refineries and Terminals", edition: "4th (2020)", status: "Under Development" },
+            { sn: 14, number: "OISD-STD-118", name: "Layout for Oil and Gas Installation", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 15, number: "OISD-STD-119", name: "Selection, Operation and Maintenance of Fire Engines", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 16, number: "OISD-STD-120", name: "Selection, Operation and Maintenance of Fire Fighting Equipment", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 17, number: "OISD-STD-121", name: "Fire Protection Facilities for Drilling Rigs and Platforms", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 18, number: "OISD-STD-122", name: "Emergency Preparedness", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 19, number: "OISD-STD-123", name: "Storage & Handling of LPG", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 20, number: "OISD-STD-124", name: "Safe Practices for Electrical Installations", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 21, number: "OISD-STD-125", name: "Inspection of Valves", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 22, number: "OISD-STD-126", name: "Pipeline Corrosion Control", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 23, number: "OISD-STD-127", name: "Safety in Design and Operation of Heating Systems", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 24, number: "OISD-STD-128", name: "Inspection of Pressure Vessels", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 25, number: "OISD-STD-129", name: "Inspection of Heat Exchangers", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 26, number: "OISD-STD-130", name: "Inspection of Storage Tanks", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 27, number: "OISD-STD-131", name: "Inspection of Boilers", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 28, number: "OISD-STD-132", name: "Inspection of Fired Heaters", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 29, number: "OISD-STD-133", name: "Inspection of Process Furnaces", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 30, number: "OISD-STD-134", name: "Inspection of Spheres & Horton Spheres", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 31, number: "OISD-STD-135", name: "Inspection of Pressure Storage Tanks", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 32, number: "OISD-STD-136", name: "Inspection of Utility Piping", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 33, number: "OISD-STD-137", name: "Inspection of Rotating Equipment", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 34, number: "OISD-STD-138", name: "Inspection of Process Piping", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 35, number: "OISD-STD-139", name: "Inspection of Non-Metallic Piping", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 36, number: "OISD-STD-140", name: "Inspection of Pipelines (Cross Country)", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 37, number: "OISD-STD-141", name: "Inspection of Equipment", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 38, number: "OISD-STD-142", name: "Inspection of Civil Structures", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 39, number: "OISD-STD-143", name: "Inspection of Offshore Structures", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 40, number: "OISD-STD-144", name: "Inspection of Welding", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 41, number: "OISD-STD-145", name: "Inspection of Lifting Appliances (Offshore)", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 42, number: "OISD-STD-146", name: "Inspection of Storage Tanks (Floating Roof)", edition: "3rd (2016)", status: "Under Development" },
+            { sn: 43, number: "OISD-STD-147", name: "Inspection of Corrosion Monitoring", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 44, number: "OISD-STD-148", name: "Inspection of F & G Detection System", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 45, number: "OISD-STD-149", name: "Inspection of Safety Valves", edition: "3rd (2018)", status: "Under Development" },
+            { sn: 46, number: "OISD-STD-150", name: "Safety in Design and Operation of Electrical Sub-Station", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 47, number: "OISD-STD-151", name: "Safety in Tank Truck Operations", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 48, number: "OISD-STD-152", name: "Safety in Pipeline Operation", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 49, number: "OISD-STD-153", name: "Safety in Service Stations", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 50, number: "OISD-STD-154", name: "Safety in Design and Operation of Oil & Gas Production Facilities", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 51, number: "OISD-STD-155", name: "Safety in Natural Gas Installations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 52, number: "OISD-STD-156", name: "Safety in LPG Bottling Plants", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 53, number: "OISD-STD-157", name: "Safety in Bulk LPG Transportation", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 54, number: "OISD-STD-158", name: "Safety in Retail Outlet", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 55, number: "OISD-STD-159", name: "Safety in Refinery Operations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 56, number: "OISD-STD-160", name: "Safety in Design and Operation of CNG Stations", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 57, number: "OISD-STD-161", name: "Safety in Bitumen Handling", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 58, number: "OISD-STD-162", name: "Safety in Methanol Handling", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 59, number: "OISD-STD-163", name: "Safety in Aviation Fueling Stations", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 60, number: "OISD-STD-164", name: "Safety in Marketing Terminals", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 61, number: "OISD-STD-165", name: "Safety in Lube Oil Plants", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 62, number: "OISD-STD-166", name: "Safety in Handling of Hazardous Chemicals", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 63, number: "OISD-STD-167", name: "Safety in Work over and Completion Operations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 64, number: "OISD-STD-168", name: "Safety in Drilling Operations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 65, number: "OISD-STD-169", name: "Fire Fighting Appliances & Systems", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 66, number: "OISD-STD-170", name: "Inspection of Cathodic Protection System", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 67, number: "OISD-STD-171", name: "Safety in Road Transportation of Petroleum Products", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 68, number: "OISD-STD-172", name: "Safety in Rail Transportation of Petroleum Products", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 69, number: "OISD-STD-173", name: "Inspection of Cross Country Pipelines", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 70, number: "OISD-STD-174", name: "Safety Audit", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 71, number: "OISD-RP-175", name: "Risk Analysis", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 72, number: "OISD-RP-176", name: "Guidelines on Occupational Health", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 73, number: "OISD-RP-177", name: "Guidelines on HSE Training", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 74, number: "OISD-RP-178", name: "Guidelines on Management of Change (MoC)", edition: "2nd (2022)", status: "Under Development" },
+            { sn: 75, number: "OISD-RP-179", name: "Safety Management System (SMS) for Petroleum Industry", edition: "2nd (2015)", status: "Under Development" },
+            { sn: 76, number: "OISD-RP-180", name: "Guidelines on Incident Investigation", edition: "2nd (2023)", status: "Under Development" },
+            { sn: 77, number: "OISD-RP-181", name: "Guidelines on Electrical Installations (Non-Hazardous Area)", edition: "3rd (2019)", status: "Under Development" },
+            { sn: 78, number: "OISD-RP-182", name: "Guidelines on Noise Survey and Control", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 79, number: "OISD-RP-183", name: "Guidelines on Storage of Petroleum Products at Ports & Harbours", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 80, number: "OISD-RP-184", name: "Guidelines on Scaffolding Safety", edition: "2nd (2017)", status: "Under Development" },
+            { sn: 81, number: "OISD-RP-185", name: "Guidelines on Safety in Construction", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 82, number: "OISD-RP-186", name: "Guidelines on Fire Fighting Training Facilities", edition: "2nd (2020)", status: "Under Development" },
+            { sn: 83, number: "OISD-RP-187", name: "Guidelines on Safety in Design of Electrical Sub-Station", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 84, number: "OISD-RP-188", name: "Guidelines on Road Safety", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 85, number: "OISD-RP-189", name: "Guidelines on Fire and Explosion Risk Analysis (FERA)", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 86, number: "OISD-RP-190", name: "Guidelines on Safety in Design of CNG Stations", edition: "2nd (2022)", status: "Under Development" },
+            { sn: 87, number: "OISD-RP-191", name: "Guidelines on Safety in Design of Natural Gas Installations", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 88, number: "OISD-RP-192", name: "Guidelines on Corrosion Monitoring", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 89, number: "OISD-RP-193", name: "Guidelines on Mechanical Integrity", edition: "2nd (2020)", status: "Under Development" },
+            { sn: 90, number: "OISD-RP-194", name: "Guidelines on Emergency Shutdown Systems", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 91, number: "OISD-RP-195", name: "Guidelines on Management of Ageing Assets", edition: "2nd (2020)", status: "Under Development" },
+            { sn: 92, number: "OISD-RP-196", name: "Guidelines on Security Management System", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 93, number: "OISD-RP-197", name: "Guidelines on Off-site Emergency Plan", edition: "2nd (2023)", status: "Under Development" },
+            { sn: 94, number: "OISD-RP-198", name: "Guidelines on Safety in Bio-Fuel Handling", edition: "2nd (2023)", status: "Under Development" },
+            { sn: 95, number: "OISD-RP-199", name: "Guidelines on Corporate Risk Management", edition: "2nd (2020)", status: "Under Development" },
+            { sn: 96, number: "OISD-GDN-200", name: "Guidelines on Lube Oil & Grease Plants", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 97, number: "OISD-GDN-201", name: "Guidelines on Safety in Refineries", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 98, number: "OISD-GDN-202", name: "Guidelines on Safety in Bulk Petroleum Transportation", edition: "2nd (2022)", status: "Under Development" },
+            { sn: 99, number: "OISD-GDN-203", name: "Guidelines on Safe Practices in Drilling Operations", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 100, number: "OISD-GDN-204", name: "Guidelines on Safe Practices in Work over and Completion Operations", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 101, number: "OISD-GDN-205", name: "Guidelines on Safety in Offshore Operations", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 102, number: "OISD-GDN-206", name: "Guidelines on Safety in Marketing Terminals", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 103, number: "OISD-GDN-207", name: "Guidelines on Process Hazard Analysis (PHA)", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 104, number: "OISD-GDN-208", name: "Guidelines on Safety in Pipeline Operations", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 105, number: "OISD-GDN-209", name: "Guidelines on Fire and Gas Detection Systems", edition: "2nd (2021)", status: "Under Development" },
+            { sn: 106, number: "OISD-GDN-210", name: "Guidelines on Electrical Safety in Hazardous Areas", edition: "3rd (2019)", status: "Under Development" },
+            { sn: 107, number: "OISD-GDN-211", name: "Guidelines on Lightning Protection", edition: "3rd (2017)", status: "Under Development" },
+            { sn: 108, number: "OISD-GDN-212", name: "Guidelines on Safety in Ethanol Handling", edition: "2nd (2022)", status: "Under Development" },
+            { sn: 109, number: "OISD-GDN-213", name: "Guidelines on Safety in Hydrogen & Flue Gas", edition: "2nd (2020)", status: "Under Development" },
+            { sn: 110, number: "OISD-GDN-214", name: "Guidelines on Hydrocarbon Gas Compressor Stations", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 111, number: "OISD-GDN-215", name: "Guidelines on Fire Protection Facilities for Petroleum Refineries", edition: "4th (2020)", status: "Under Development" },
+            { sn: 112, number: "OISD-GDN-216", name: "Guidelines on Safety in L.P.G. Handling", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 113, number: "OISD-GDN-217", name: "Guidelines on Safety in Aviation Fueling Stations", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 114, number: "OISD-GDN-218", name: "Guidelines on Safety in Retail Outlet", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 115, number: "OISD-GDN-219", name: "Guidelines on Safety in Lube Oil Plants", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 116, number: "OISD-GDN-220", name: "Guidelines on Safety in Marketing Terminals", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 117, number: "OISD-GDN-221", name: "Guidelines on Safety in Design and Operation of Oil & Gas Production Facilities", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 118, number: "OISD-GDN-222", name: "Guidelines on Safety in Natural Gas Installations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 119, number: "OISD-GDN-223", name: "Guidelines on Safety in LPG Bottling Plants", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 120, number: "OISD-GDN-224", name: "Guidelines on Safety in Bulk LPG Transportation", edition: "3rd (2020)", status: "Under Development" },
+            { sn: 121, number: "OISD-GDN-225", name: "Guidelines on FERA for New Projects", edition: "2nd (2019)", status: "Under Development" },
+            { sn: 122, number: "OISD-GDN-226", name: "Guidelines on Safety in Transportation of Petroleum Products by Road", edition: "3rd (2022)", status: "Under Development" },
+            { sn: 123, number: "OISD-GDN-227", name: "Guidelines on Safety in Transportation of Petroleum Products by Rail", edition: "2nd (2018)", status: "Under Development" },
+            { sn: 124, number: "OISD-GDN-228", name: "Guidelines on Safety in Drilling & Well Operations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 125, number: "OISD-GDN-229", name: "Guidelines on Safety in Offshore Operations", edition: "3rd (2021)", status: "Under Development" },
+            { sn: 126, number: "OISD-GDN-230", name: "Guidelines on Fire & Gas Detection Systems", edition: "2nd (2021)", status: "Under Development" }
+        ];
+        
+        // --- GLOBAL STATE FOR CURRENT DOCUMENT ---
+        let currentDocumentIndex = -1; // Stores the index of the document currently being viewed/downloaded
+
+        // --- Utility Functions ---
+
+        // Helper to check if the user is on a typical mobile device
+        function isMobileDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            // Check for common mobile strings
+            return /android|iphone|ipad|ipod|windows phone/i.test(userAgent);
+        }
+
+        // --- Core Download Logic ---
+        function getDocumentContentForDownload(doc) {
+            let factsContent, definitionsContent;
+            const placeholderText = 'NOTES: This section is currently under development. Please check back later for detailed interview preparation notes.';
+
+            if (doc.status === 'Completed') {
+                factsContent = doc.facts;
+                definitionsContent = doc.definitions;
+            } else {
+                factsContent = placeholderText;
+                definitionsContent = placeholderText;
+            }
+
+            // CONSOLIDATE ALL CONTENT into a single string for the PDF download
+            return (
+                `OISD Standard: ${doc.number} - ${doc.name}\nEdition: ${doc.edition}\n\n` +
+                `=========================================\n` +
+                `FACTS & KEY DATA\n` +
+                `=========================================\n${factsContent}\n\n` +
+                `=========================================\n` +
+                `DEFINITIONS\n` +
+                `=========================================\n${definitionsContent}`
+            );
+        }
+        
+        function performDownload() {
+            closeModal();
+            const doc = documents[currentDocumentIndex];
+            
+            if (!doc) {
+                console.error("Download context is missing or invalid index.");
+                return;
+            }
+            
+            // Get the structured content
+            const content = getDocumentContentForDownload(doc);
+
+            const cleanTitle = 'Interview_Notes';
+            const fileName = `${doc.number}-${cleanTitle}.pdf`;
+
+            const blob = new Blob([content], { type: 'text/plain' }); 
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            URL.revokeObjectURL(url);
+            
+            console.log(`Simulated Notes download triggered for: ${fileName}`);
+        }
+        
+        // Function to handle the UPI deep link payment
+        function showUpiDeepLink() {
+            // Placeholder VPA and amount for the deep link
+            const placeholderVPA = 'developer@upi'; // Replace with your actual VPA
+            const amount = '10.00';
+            
+            // Generate a unique transaction reference (txnRef)
+            const txnRef = 'OISD' + Math.random().toString(36).substring(2, 10).toUpperCase();
+
+            // Construct the UPI deep link
+            const upiLink = `upi://pay?pa=${placeholderVPA}&pn=Developer&am=${amount}&cu=INR&tid=&tr=${txnRef}&mc=0000`;
+
+            // Redirect the user to the UPI app
+            window.location.href = upiLink;
+            closeModal(); // Close the modal immediately
+            
+            // Optionally, you might want to show a success/waiting message before closing,
+            // but for simplicity, we just navigate.
+        }
+
+        // --- Modal Control Functions ---
+        function openDownloadModal() {
+            if (currentDocumentIndex === -1 || !documents[currentDocumentIndex]) {
+                 console.error("Cannot open modal: No document selected.");
+                 return;
+            }
+            
+            // Check if mobile and show/hide the dedicated UPI button
+            const mobileButton = document.getElementById('mobileUpiButton');
+            if (isMobileDevice()) {
+                mobileButton.classList.remove('hidden');
+            } else {
+                mobileButton.classList.add('hidden');
+            }
+
+            document.getElementById('downloadModal').classList.remove('hidden');
+            document.getElementById('modalChoiceView').classList.remove('hidden');
+            document.getElementById('modalQrCodeView').classList.add('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('downloadModal').classList.add('hidden');
+        }
+
+        function showQrCode() {
+            document.getElementById('modalChoiceView').classList.add('hidden');
+            document.getElementById('modalQrCodeView').classList.remove('hidden');
+        }
+
+        // --- Retractable Section Toggle Function ---
+        function toggleNote(button) {
+            const content = button.parentElement.querySelector('.note-content');
+            const arrow = button.querySelector('svg');
+
+            // Toggle visibility of the content div
+            content.classList.toggle('hidden');
+            
+            // Toggle arrow rotation
+            if (arrow) {
+                arrow.classList.toggle('rotate-180');
+            }
+
+            // Toggle button border radius (top/bottom)
+            button.classList.toggle('open');
+            button.classList.toggle('closed');
+            
+            // Toggle content border radius (top/bottom)
+            content.classList.toggle('rounded-b-xl');
+        }
+
+        // Function to render documents to the DOM (Updated ID to dataRowsContainer)
+        function renderDocuments(docs) {
+            const listElement = document.getElementById('dataRowsContainer');
+            listElement.innerHTML = ''; 
+
+            if (docs.length === 0) {
+                listElement.innerHTML = '<div class="p-6 text-center text-xl text-gray-500">No documents found matching your search.</div>';
+                return;
+            }
+
+            docs.forEach((doc, index) => {
+                const row = document.createElement('div');
+                
+                // Find the original index for accurate data retrieval later
+                const originalIndex = documents.findIndex(d => d.sn === doc.sn);
+
+                // --- Status Pill Color Logic ---
+                let statusClasses = 'bg-gray-100 text-gray-800'; // Default
+                if (doc.status === 'Completed') {
+                    statusClasses = 'bg-green-100 text-green-800';
+                } else if (doc.status === 'Under Development') {
+                    statusClasses = 'bg-yellow-100 text-yellow-800';
+                }
+
+                // Added ID attribute for internal linking support
+                row.className = 'document-row p-4 hover:bg-blue-100 transition duration-150 border-t border-gray-100 last:border-b-0 cursor-pointer';
+                row.id = doc.number; // Use Standard Number as ID for linking
+                row.setAttribute('onclick', `showDocumentDetails(${originalIndex})`);
+                
+                // Desktop/Tablet Layout (Grid)
+                const desktopContent = `
+                    <div class="hidden md:grid grid-cols-6 lg:grid-cols-9 gap-4 items-center">
+                        <div class="col-span-1 text-sm font-medium text-gray-600">${doc.sn}</div>
+                        <div class="col-span-2 lg:col-span-2 text-base font-semibold text-blue-800">${doc.number}</div>
+                        <div class="col-span-2 lg:col-span-4 text-gray-700">${doc.name}</div>
+                        <div class="col-span-1 lg:col-span-1 text-sm text-center text-gray-500">${doc.edition}</div>
+                        <div class="col-span-0 lg:col-span-1 text-center">
+                            <span class="inline-flex items-center px-3 py-1 text-xs font-semibold leading-none rounded-full ${statusClasses}">${doc.status}</span>
+                        </div>
+                    </div>
+                `;
+
+                // Mobile Layout (Stacked List) - Updated label for Sr. No.
+                const mobileContent = `
+                    <div class="md:hidden space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-gray-500">Sr. No. ${doc.sn}</span>
+                            <span class="inline-flex items-center px-3 py-1 text-xs font-semibold leading-none rounded-full ${statusClasses}">${doc.status}</span>
+                        </div>
+                        <div class="text-lg font-bold text-blue-800">${doc.number}</div>
+                        <div class="text-base text-gray-700">${doc.name}</div>
+                        <div class="text-sm text-gray-500">Edition: ${doc.edition}</div>
+                        <div class="mt-2 text-xs text-blue-600 font-semibold pt-1 border-t border-gray-100">Tap for notes</div>
+                    </div>
+                `;
+
+                row.innerHTML = desktopContent + mobileContent;
+                listElement.appendChild(row);
+            });
+        }
+
+        // Function to switch to the Document Details view
+        function showDocumentDetails(index) {
+            const doc = documents[index];
+            if (!doc) return;
+
+            // 1. Set the global context index
+            currentDocumentIndex = index;
+
+            let factsContent, definitionsContent, statusColorClasses;
+            const placeholderText = 'NOTES: This section is currently under development. Please check back later for detailed interview preparation notes.';
+
+            if (doc.status === 'Completed') {
+                factsContent = doc.facts;
+                definitionsContent = doc.definitions;
+                statusColorClasses = 'bg-green-100 text-green-800 border-green-300';
+            } else {
+                factsContent = placeholderText;
+                definitionsContent = placeholderText;
+                statusColorClasses = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+            }
+
+            // Get status pill HTML for re-use
+            const statusPillClasses = doc.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800';
+            const statusPill = `<span class="inline-flex items-center px-3 py-1 text-sm font-semibold leading-none rounded-full ${statusPillClasses}">${doc.status}</span>`;
+
+
+            // --- Construct the HTML for the details page ---
+            let detailsHtml = `
+                <h1 class="text-4xl font-extrabold text-blue-800 mb-2" id="${doc.number}">OISD Standard: ${doc.number}</h1>
+                <p class="text-2xl text-gray-700 mb-6">${doc.name}</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-8 border-t border-b py-4 border-gray-200">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-gray-500">Serial Number</span>
+                        <span class="text-lg font-semibold text-gray-800">${doc.sn}</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-gray-500">Current Edition</span>
+                        <span class="text-lg font-semibold text-gray-800">${doc.edition}</span>
+                    </div>
+                    <div class="flex flex-col col-span-2">
+                        <span class="text-sm font-medium text-gray-500">STATUS</span>
+                        <span class="text-lg font-semibold">${statusPill}</span>
+                    </div>
+                </div>
+
+                <!-- DOWNLOAD BUTTON - SIMPLIFIED onClick -->
+                <div class="mb-8">
+                    <button 
+                        onclick="openDownloadModal()"
+                        class="w-full sm:w-auto bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-150 flex items-center justify-center shadow-md text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        DOWNLOAD INTERVIEW NOTES (PDF)
+                    </button>
+                </div>
+                
+                <!-- 1. FACTS SECTION (RETRACTABLE) -->
+                <div class="mb-4">
+                    <button onclick="toggleNote(this)"
+                        class="retractable-button closed w-full flex justify-between items-center ${statusColorClasses} p-4 font-bold text-xl hover:opacity-90 transition duration-150 border shadow-lg">
+                        Facts & Key Data
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Content area using new style class for better wrapping and appearance -->
+                    <div class="note-content hidden p-6 bg-white border border-t-0 border-gray-200 rounded-b-xl shadow-inner">
+                        <pre class="notes-pre">${factsContent}</pre>
+                    </div>
+                </div>
+
+                <!-- 2. DEFINITIONS SECTION (RETRACTABLE) -->
+                <div>
+                    <button onclick="toggleNote(this)"
+                        class="retractable-button closed w-full flex justify-between items-center ${statusColorClasses} p-4 font-bold text-xl hover:opacity-90 transition duration-150 border shadow-lg">
+                        Definitions
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Content area using new style class for better wrapping and appearance -->
+                    <div class="note-content hidden p-6 bg-white border border-t-0 border-gray-200 rounded-b-xl shadow-inner">
+                        <pre class="notes-pre">${definitionsContent}</pre>
+                    </div>
+                    
+                </div>
+            `;
+
+            // Inject content and switch views
+            document.getElementById('documentDetailsContent').innerHTML = detailsHtml;
+            document.getElementById('listView').classList.add('hidden');
+            document.getElementById('detailsView').classList.remove('hidden');
+            window.scrollTo(0, 0); // Scroll to the top of the new page
+        }
+
+        // Function to switch back to the List view
+        function showListView() {
+            document.getElementById('detailsView').classList.add('hidden');
+            document.getElementById('listView').classList.remove('hidden');
+            currentDocumentIndex = -1; // Clear context
+            window.scrollTo(0, 0); // Scroll to the top of the list
+        }
+
+        // Function to filter documents based on search input
+        function filterDocuments() {
+            showListView(); 
+            
+            const input = document.getElementById('searchInput');
+            const filter = input.value.trim().toUpperCase(); 
+
+            if (filter === "") {
+                renderDocuments(documents);
+                return;
+            }
+
+            const filteredDocs = documents.filter(doc => {
+                const num = doc.number.toUpperCase();
+                const name = doc.name.toUpperCase();
+                return num.includes(filter) || name.includes(filter);
+            });
+
+            renderDocuments(filteredDocs);
+        }
+
+        // Function to refresh the list and clear the search bar
+        function refreshList() {
+            document.getElementById('searchInput').value = '';
+            showListView();
+            renderDocuments(documents);
+        }
+
+        // Initial render on page load
+        window.onload = () => {
+            // Set the total count dynamically (now in the 'p' tag)
+            document.querySelector('.p-6 p.text-gray-500').textContent = `Click on any row for notes. Total: ${documents.length}`;
+
+            renderDocuments(documents);
+            
+            const inputField = document.getElementById('searchInput');
+            if (inputField) {
+                inputField.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); 
+                        filterDocuments(); 
+                        inputField.blur();
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html>
